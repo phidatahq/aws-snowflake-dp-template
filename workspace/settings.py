@@ -1,0 +1,57 @@
+from pathlib import Path
+
+from phidata.workspace.settings import WorkspaceSettings
+
+#
+# -*- Define workspace settings using the WorkspaceSettings class
+#
+ws_settings = WorkspaceSettings(
+    # Workspace name: used for naming cloud resources
+    ws_name="dp002",
+    # Workspace git repo url: used to git-sync DAGs and Charts
+    ws_repo="https://github.com/phidatahq/aws-snowflake-dp-template.git",
+    # Path to the workspace directory
+    ws_dir=Path(__file__).parent.resolve(),
+    # -*- Dev settings
+    dev_env="dev",
+    # -*- Dev Apps
+    dev_airflow_enabled=True,
+    dev_assistant_enabled=True,
+    dev_databox_enabled=True,
+    dev_jupyter_enabled=True,
+    dev_postgres_enabled=True,
+    dev_superset_enabled=True,
+    dev_traefik_enabled=True,
+    # -*- Production settings
+    prd_env="prd",
+    # Domain for the production platform
+    prd_domain="dp002.xyz",
+    # -*- Production Apps
+    prd_airflow_enabled=True,
+    prd_assistant_enabled=True,
+    prd_databox_enabled=True,
+    prd_jupyter_enabled=True,
+    prd_postgres_enabled=True,
+    prd_superset_enabled=True,
+    prd_traefik_enabled=True,
+    prd_whoami_enabled=True,
+    # -*- AWS settings
+    # Region for AWS resources
+    aws_region="us-east-1",
+    # Availability Zones for AWS resources
+    aws_az1="us-east-1a",
+    aws_az2="us-east-1b",
+    # Subnet IDs for AWS resources
+    subnet_ids=None,
+    # Security Groups for AWS resources
+    security_groups=None,
+    # -*- Image Settings
+    # Repository for images
+    # image_repo="your-repo",
+    # Suffix added to the image name
+    image_suffix="aws-snowflake-dp",
+    # Build images locally
+    # build_images=True,
+    # Push images after building
+    # push_docker_images=True,
+)

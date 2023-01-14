@@ -1,0 +1,2 @@
+AIRFLOW_ENV: prd
+JUPYTER_ENV: prd

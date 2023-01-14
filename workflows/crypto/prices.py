@@ -11,7 +11,7 @@ from phidata.workflow import Workflow
 # A workflow to download crypto price data locally
 ##############################################################################
 
-# Step 1: Define CsvTable for storing data
+# Step 1: Define CsvTableLocal for storing data
 # Path: `storage/tables/crypto_prices`
 crypto_prices_local = CsvTableLocal(
     name="crypto_prices",
@@ -21,11 +21,11 @@ crypto_prices_local = CsvTableLocal(
 )
 
 
-# Step 2: Create task to download crypto price data and write to CsvTable
+# Step 2: Create task to download crypto price data and write to CsvTableLocal
 @task
 def load_crypto_prices(**kwargs) -> bool:
     """
-    Download prices and load a CsvTable.
+    Download prices and load a CsvTableLocal.
     """
     import httpx
     import pyarrow as pa
@@ -68,11 +68,11 @@ def load_crypto_prices(**kwargs) -> bool:
     return crypto_prices_local.write_table(table)
 
 
-# 2.2: Create a task to analyze data in CsvTable
+# 2.2: Create a task to analyze data in CsvTableLocal
 @task
 def analyze_crypto_prices(**kwargs) -> bool:
     """
-    Read CsvTable
+    Read CsvTableLocal
     """
     import pyarrow as pa
     import pyarrow.dataset as ds

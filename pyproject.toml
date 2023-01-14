@@ -18,7 +18,7 @@ dependencies = [
   "pytest",
   # Linting
   "ruff",
-  "phidata==1.0.0.dev6",
+  "phidata>=1.0.0",
   # Dataframe libraries
   "pandas",
   "polars",
@@ -26,6 +26,8 @@ dependencies = [
   "sqlmodel",
   # Snowflake libraries
   "snowflake-sqlalchemy",
+  # Postgres libraries
+  # "psycopg2-binary",
   # AWS libraries
   # "awswrangler",
   # Other libraries

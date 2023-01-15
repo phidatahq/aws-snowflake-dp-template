@@ -20,7 +20,7 @@ skip_delete: bool = False
 # Wait for the resource to be created
 wait_for_create: bool = True
 # Wait for the resource to be deleted
-wait_for_delete: bool = False
+wait_for_delete: bool = True
 
 #
 # -*- Jupyterlab AWS resources

@@ -52,3 +52,18 @@ prd_superset_image = DockerImage(
 
 if ws_settings.prd_superset_enabled and ws_settings.build_images:
     prd_images.append(prd_superset_image)
+
+# -*- Databox image
+prd_databox_image = DockerImage(
+    name=f"{ws_settings.image_repo}/databox-{ws_settings.image_suffix}",
+    tag=ws_settings.prd_env,
+    path=str(ws_settings.ws_dir.parent),
+    dockerfile="workspace/prd/images/databox.Dockerfile",
+    pull=ws_settings.pull_docker_images,
+    push_image=ws_settings.push_docker_images,
+    skip_docker_cache=ws_settings.skip_docker_cache,
+    use_cache=ws_settings.use_cache,
+)
+
+if ws_settings.prd_databox_enabled and ws_settings.build_images:
+    prd_images.append(prd_databox_image)

@@ -42,7 +42,7 @@ dev_jupyter = JupyterLab(
 )
 
 dev_jupyter_apps = AppGroup(
-    name="jupyterlab",
+    name="jupyter",
     enabled=ws_settings.dev_jupyter_enabled,
     apps=[dev_jupyter],
 )

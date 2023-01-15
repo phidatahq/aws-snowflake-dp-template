@@ -23,7 +23,7 @@ wait_for_create: bool = True
 wait_for_delete: bool = True
 
 #
-# -*- Jupyterlab AWS resources
+# -*- Jupyter AWS resources
 #
 # -*- EbsVolumes
 # EbsVolume for jupyterlab
@@ -38,18 +38,18 @@ prd_jupyter_ebs_volume = EbsVolume(
     wait_for_deletion=wait_for_delete,
 )
 
-prd_jupyterlab_aws_resources = AwsResourceGroup(
-    name=f"jupyterlab-{lab_id}",
+prd_jupyter_aws_resources = AwsResourceGroup(
+    name=f"jupyter-{lab_id}",
     enabled=ws_settings.prd_jupyter_enabled,
     volumes=[prd_jupyter_ebs_volume],
 )
 
 #
-# -*- Jupyterlab Kubernetes resources
+# -*- Jupyter Kubernetes resources
 #
 # JupyterLab
-prd_jupyterlab = JupyterLab(
-    name=f"jupyterlab-{lab_id}",
+prd_jupyter = JupyterLab(
+    name=f"jupyter-{lab_id}",
     image_name=prd_jupyter_image.name,
     image_tag=prd_jupyter_image.tag,
     mount_ebs_volume=True,
@@ -68,8 +68,8 @@ prd_jupyterlab = JupyterLab(
     topology_spread_when_unsatisfiable=topology_spread_when_unsatisfiable,
 )
 
-prd_jupyterlab_apps = AppGroup(
-    name=f"jupyterlab-{lab_id}",
+prd_jupyter_apps = AppGroup(
+    name=f"jupyter-{lab_id}",
     enabled=ws_settings.prd_jupyter_enabled,
-    apps=[prd_jupyterlab],
+    apps=[prd_jupyter],
 )

@@ -9,7 +9,7 @@ from workspace.prd.aws_resources import (
     topology_spread_when_unsatisfiable,
 )
 from workspace.prd.airflow.k8s_apps import prd_airflow_flower, prd_airflow_ws
-from workspace.prd.jupyter.jupyterlab import prd_jupyterlab
+from workspace.prd.jupyter.jupyter_lab import prd_jupyter
 from workspace.prd.superset.k8s_apps import prd_superset_ws
 from workspace.k8s.whoami import whoami_port, whoami_service
 from workspace.settings import ws_settings
@@ -74,12 +74,12 @@ if ws_settings.prd_superset_enabled:
 if ws_settings.prd_jupyter_enabled:
     routes.append(
         {
-            "match": f"Host(`jupyterlab.{ws_settings.prd_domain}`)",
+            "match": f"Host(`jupyter.{ws_settings.prd_domain}`)",
             "kind": "Rule",
             "services": [
                 {
-                    "name": prd_jupyterlab.get_app_service_name(),
-                    "port": prd_jupyterlab.get_app_service_port(),
+                    "name": prd_jupyter.get_app_service_name(),
+                    "port": prd_jupyter.get_app_service_port(),
                 }
             ],
         }

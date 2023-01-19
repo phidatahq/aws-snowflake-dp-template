@@ -26,7 +26,7 @@ main() {
   source ${VENV_DIR}/bin/activate
   source ${CURR_DIR}/install.sh
 
-  print_heading "Activate using: source ${VENV_DIR}/bin/activate"
+  print_heading "Activate using: source .venv/dpenv/bin/activate"
 }
 
 main "$@"

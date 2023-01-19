@@ -18,7 +18,7 @@ dependencies = [
   "pytest",
   # Linting
   "ruff",
-  "phidata>=1.0.2",
+  "phidata==1.0.4",
   # Dataframe libraries
   # "pandas",
   # "polars",

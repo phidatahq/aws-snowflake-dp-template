@@ -20,9 +20,9 @@ dev_databox_image = DockerImage(
     enabled=ws_settings.build_images,
     path=str(ws_settings.ws_dir.parent),
     dockerfile="workspace/dev/images/databox.Dockerfile",
-    pull=ws_settings.pull_docker_images,
-    push_image=ws_settings.push_docker_images,
-    skip_docker_cache=ws_settings.skip_docker_cache,
+    pull=ws_settings.force_pull_images,
+    push_image=ws_settings.push_images,
+    skip_docker_cache=ws_settings.skip_image_cache,
     use_cache=ws_settings.use_cache,
 )
 

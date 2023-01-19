@@ -55,5 +55,9 @@ ws_settings = WorkspaceSettings(
     # Build images locally
     # build_images=True,
     # Push images after building
-    # push_docker_images=True,
+    # push_images=True,
+    # Skip cache when building images
+    # skip_image_cache=False,
+    # Force pull images in FROM
+    # force_pull_images=False,
 )

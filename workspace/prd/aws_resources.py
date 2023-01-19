@@ -126,7 +126,7 @@ prd_worker_eks_nodegroup = EksNodeGroup(
 
 # -*- ACM certificate for domain
 prd_acm_certificate = AcmCertificate(
-    name=ws_settings.prd_domain,
+    name=f"{ws_settings.prd_key}-cert",
     domain_name=ws_settings.prd_domain,
     subject_alternative_names=[f"*.{ws_settings.prd_domain}"],
     # Store the certificate ARN in the certificate_summary_file

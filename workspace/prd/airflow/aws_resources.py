@@ -7,7 +7,7 @@ from phidata.aws.resource.group import (
     EbsVolume,
 )
 
-from workspace.prd.aws_resources import prd_vpc_stack
+from workspace.prd.aws_resources import prd_eks_cluster
 from workspace.settings import ws_settings
 
 #
@@ -60,7 +60,7 @@ prd_rds_subnet_group = DbSubnetGroup(
     name=f"{ws_settings.prd_key}-db-sg",
     enabled=use_rds,
     # subnet_ids=ws_settings.subnet_ids,
-    vpc_stack=prd_vpc_stack,
+    vpc_stack=prd_eks_cluster.get_vpc_stack(),
     skip_create=skip_create,
     skip_delete=skip_delete,
     wait_for_creation=wait_for_create,
@@ -72,7 +72,7 @@ prd_elasticache_subnet_group = CacheSubnetGroup(
     name=f"{ws_settings.prd_key}-cache-sg",
     enabled=use_elasticache,
     # subnet_ids=ws_settings.subnet_ids,
-    vpc_stack=prd_vpc_stack,
+    vpc_stack=prd_eks_cluster.get_vpc_stack(),
     skip_create=skip_create,
     skip_delete=skip_delete,
     wait_for_creation=wait_for_create,

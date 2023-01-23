@@ -1,6 +1,5 @@
 from phidata.aws.resource.group import (
     AcmCertificate,
-    CloudFormationStack,
     EksCluster,
     EksKubeconfig,
     EksNodeGroup,
@@ -38,17 +37,6 @@ prd_logs_s3_bucket = S3Bucket(
 prd_data_s3_bucket = S3Bucket(
     name=f"{ws_settings.prd_key}-data",
     acl="private",
-    skip_create=skip_create,
-    skip_delete=skip_delete,
-    wait_for_creation=wait_for_create,
-    wait_for_deletion=wait_for_delete,
-)
-
-# -*- VPC stack for EKS
-prd_vpc_stack = CloudFormationStack(
-    name=f"{ws_settings.prd_key}-vpc",
-    template_url="https://amazon-eks.s3.us-west-2.amazonaws.com/cloudformation/2020-10-29/amazon-eks-vpc-private-subnets.yaml",
-    tags=ws_settings.prd_tags,
     skip_create=skip_create,
     skip_delete=skip_delete,
     wait_for_creation=wait_for_create,

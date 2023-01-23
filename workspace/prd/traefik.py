@@ -103,6 +103,8 @@ traefik_ingress_route = IngressRoute(
     service_type=ServiceType.LOAD_BALANCER,
     # Use AWS LoadBalancer
     load_balancer_provider=LoadBalancerProvider.AWS,
+    # Uncomment to use an internal LoadBalancer
+    # load_balancer_scheme="internal",
     # Use a Network LoadBalancer
     use_nlb=True,
     # Enable traefik dashboard

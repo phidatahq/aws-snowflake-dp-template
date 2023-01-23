@@ -105,6 +105,8 @@ traefik_ingress_route = IngressRoute(
     load_balancer_provider=LoadBalancerProvider.AWS,
     # Uncomment to use an internal LoadBalancer
     # load_balancer_scheme="internal",
+    # Uncomment to use custom subnets for the LoadBalancer
+    # load_balancer_subnets=ws_settings.subnet_ids,
     # Use a Network LoadBalancer
     use_nlb=True,
     # Enable traefik dashboard

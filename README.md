@@ -10,8 +10,8 @@ This repo contains the code for a data platform with 2 environments:
 1. Create + activate virtual env:
 
 ```sh
-python3 -m venv .venvs/dpenv
-source .venvs/dpenv/bin/activate
+python3 -m venv .venv/dpenv
+source .venv/dpenv/bin/activate
 ```
 
 2. Install + init `phidata`:
@@ -96,7 +96,7 @@ This will:
 If you need to install packages, run:
 
 ```sh
-pip install black[jupyter] mypy pytest ruff
+pip install black mypy pytest ruff
 ```
 
 ### Install workspace

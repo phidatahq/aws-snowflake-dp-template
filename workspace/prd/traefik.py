@@ -2,7 +2,7 @@ from phidata.app.group import AppGroup
 from phidata.app.traefik import IngressRoute, ServiceType, LoadBalancerProvider
 
 from workspace.prd.aws_resources import (
-    prd_acm_certificate,
+    prd_acm_certificate,  # noqa: F401
     services_ng_label,
     topology_spread_key,
     topology_spread_max_skew,

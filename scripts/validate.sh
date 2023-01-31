@@ -8,7 +8,7 @@
 # 3. Test using pytest
 # 4. Lint using ruff
 # Usage:
-#   ./scripts/format.sh
+#   ./scripts/validate.sh
 #
 ############################################################################
 

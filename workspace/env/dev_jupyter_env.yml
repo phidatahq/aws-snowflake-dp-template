@@ -1,0 +1,2 @@
+AIRFLOW_ENV: dev
+JUPYTER_ENV: dev

@@ -46,7 +46,9 @@ prd_postgres = PostgresDb(
     name=f"postgres-{db_id}",
     volume_type=PostgresVolumeType.AWS_EBS,
     ebs_volume=prd_postgres_volume,
-    secrets_file=ws_settings.ws_dir.joinpath("secrets/prd_postgres_secrets.yml"),
+    secrets_file=ws_settings.ws_root.joinpath(
+        "workspace/secrets/prd_postgres_secrets.yml"
+    ),
     pod_node_selector=services_ng_label,
 )
 

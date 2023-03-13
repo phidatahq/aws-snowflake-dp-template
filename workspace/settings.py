@@ -10,8 +10,8 @@ ws_settings = WorkspaceSettings(
     ws_name="dp002",
     # Workspace git repo url: used to git-sync DAGs and Charts
     ws_repo="https://github.com/phidatahq/aws-snowflake-dp-template.git",
-    # Path to the workspace directory
-    ws_dir=Path(__file__).parent.resolve(),
+    # Path to the workspace root
+    ws_root=Path(__file__).parent.parent.resolve(),
     # -*- Dev settings
     dev_env="dev",
     # -*- Dev Apps

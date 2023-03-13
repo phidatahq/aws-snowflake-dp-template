@@ -12,7 +12,7 @@ prd_images = []
 prd_airflow_image = DockerImage(
     name=f"{ws_settings.image_repo}/airflow-{ws_settings.image_suffix}",
     tag=ws_settings.prd_env,
-    path=str(ws_settings.ws_dir.parent),
+    path=str(ws_settings.ws_root),
     dockerfile="workspace/prd/images/airflow.Dockerfile",
     pull=ws_settings.force_pull_images,
     push_image=ws_settings.push_images,
@@ -27,7 +27,7 @@ if ws_settings.prd_airflow_enabled and ws_settings.build_images:
 prd_jupyter_image = DockerImage(
     name=f"{ws_settings.image_repo}/jupyter-{ws_settings.image_suffix}",
     tag=ws_settings.prd_env,
-    path=str(ws_settings.ws_dir.parent),
+    path=str(ws_settings.ws_root),
     dockerfile="workspace/prd/images/jupyter.Dockerfile",
     pull=ws_settings.force_pull_images,
     push_image=ws_settings.push_images,
@@ -42,7 +42,7 @@ if ws_settings.prd_jupyter_enabled and ws_settings.build_images:
 prd_superset_image = DockerImage(
     name=f"{ws_settings.image_repo}/superset-{ws_settings.image_suffix}",
     tag=ws_settings.prd_env,
-    path=str(ws_settings.ws_dir.parent),
+    path=str(ws_settings.ws_root),
     dockerfile="workspace/prd/images/superset.Dockerfile",
     pull=ws_settings.force_pull_images,
     push_image=ws_settings.push_images,
@@ -57,7 +57,7 @@ if ws_settings.prd_superset_enabled and ws_settings.build_images:
 prd_databox_image = DockerImage(
     name=f"{ws_settings.image_repo}/databox-{ws_settings.image_suffix}",
     tag=ws_settings.prd_env,
-    path=str(ws_settings.ws_dir.parent),
+    path=str(ws_settings.ws_root),
     dockerfile="workspace/prd/images/databox.Dockerfile",
     pull=ws_settings.force_pull_images,
     push_image=ws_settings.push_images,

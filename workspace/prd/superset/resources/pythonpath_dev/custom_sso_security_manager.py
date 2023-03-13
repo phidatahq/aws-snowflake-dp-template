@@ -47,11 +47,9 @@ def get_roles_for_gh_team(team_payload: List[dict]) -> List[str]:
 
 
 class CustomSsoSecurityManager(SupersetSecurityManager):
-
     # For other providers:
     # https://github.com/dpgaspar/Flask-AppBuilder/blob/master/flask_appbuilder/security/manager.py#L550
     def oauth_user_info(self, provider, response=None):
-
         logging.info(f"Getting user info from {provider}")
 
         if provider == "google":

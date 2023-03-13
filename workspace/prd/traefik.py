@@ -116,7 +116,9 @@ traefik_ingress_route = IngressRoute(
     # The dashboard is gated behind a user:password, which is generated using the cmd:
     #   htpasswd -nb user password
     # You can provide the "users:password" list as DASHBOARD_AUTH_USERS in the secrets_file
-    secrets_file=ws_settings.ws_dir.joinpath("secrets/prd_traefik_secrets.yml"),
+    secrets_file=ws_settings.ws_root.joinpath(
+        "workspace/secrets/prd_traefik_secrets.yml"
+    ),
     use_cache=ws_settings.use_cache,
     pod_node_selector=services_ng_label,
     topology_spread_key=topology_spread_key,

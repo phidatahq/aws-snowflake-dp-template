@@ -27,7 +27,6 @@ with DAG(
     tags=["notebooks"],
     catchup=False,
 ) as dag:
-
     hello_world = PapermillOperator(
         task_id="hello_world",
         input_nb=str(notebooks_dir.joinpath("examples", "hello_world.ipynb")),

@@ -38,10 +38,12 @@ wait_for_redis: bool = True
 mount_resources: bool = True
 dev_superset_resources: str = "workspace/dev/superset/resources"
 # Read env variables from env/dev_superset_env.yml
-dev_superset_env_file: Path = ws_settings.ws_dir.joinpath("env/dev_superset_env.yml")
+dev_superset_env_file: Path = ws_settings.ws_root.joinpath(
+    "workspace/env/dev_superset_env.yml"
+)
 # Read secrets from secrets/dev_superset_secrets.yml
-dev_superset_secrets_file: Path = ws_settings.ws_dir.joinpath(
-    "secrets/dev_superset_secrets.yml"
+dev_superset_secrets_file: Path = ws_settings.ws_root.joinpath(
+    "workspace/secrets/dev_superset_secrets.yml"
 )
 
 # -*- Superset image
@@ -49,7 +51,7 @@ dev_superset_image = DockerImage(
     name=f"{ws_settings.image_repo}/superset-{ws_settings.image_suffix}",
     tag=ws_settings.dev_env,
     enabled=ws_settings.build_images,
-    path=str(ws_settings.ws_dir.parent),
+    path=str(ws_settings.ws_root),
     dockerfile="workspace/dev/images/superset.Dockerfile",
     pull=ws_settings.force_pull_images,
     push_image=ws_settings.push_images,

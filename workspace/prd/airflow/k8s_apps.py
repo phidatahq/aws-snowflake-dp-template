@@ -42,7 +42,9 @@ prd_airflow_db = PostgresDb(
     enabled=(not use_rds),
     volume_type=PostgresVolumeType.AWS_EBS,
     ebs_volume=prd_airflow_db_volume,
-    secrets_file=ws_settings.ws_dir.joinpath("secrets/prd_airflow_db_secrets.yml"),
+    secrets_file=ws_settings.ws_root.joinpath(
+        "workspace/secrets/prd_airflow_db_secrets.yml"
+    ),
     pod_node_selector=services_ng_label,
 )
 
@@ -68,10 +70,12 @@ mount_workspace: bool = True
 # Create a git-sync sidecar
 create_git_sync_sidecar: bool = True
 # Read env variables from env/prd_airflow_env.yml
-prd_airflow_env_file: Path = ws_settings.ws_dir.joinpath("env/prd_airflow_env.yml")
+prd_airflow_env_file: Path = ws_settings.ws_root.joinpath(
+    "workspace/env/prd_airflow_env.yml"
+)
 # Read secrets from secrets/prd_airflow_secrets.yml
-prd_airflow_secrets_file: Path = ws_settings.ws_dir.joinpath(
-    "secrets/prd_airflow_secrets.yml"
+prd_airflow_secrets_file: Path = ws_settings.ws_root.joinpath(
+    "workspace/secrets/prd_airflow_secrets.yml"
 )
 # Add airflow configuration using env variables
 prd_airflow_env: Dict[str, str] = {

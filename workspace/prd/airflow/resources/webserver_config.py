@@ -125,13 +125,11 @@ def get_roles_for_gh_team(team_payload: List[dict]) -> List[str]:
 
 
 class OauthAuthorizer(AirflowSecurityManager):
-
     # For other providers:
     # https://github.com/dpgaspar/Flask-AppBuilder/blob/master/flask_appbuilder/security/manager.py#L550
     def get_oauth_user_info(
         self, provider: str, resp: Any
     ) -> dict[str, Union[str, list[str]]]:
-
         logging.info(f"Getting user info from {provider}")
 
         if provider == "google":

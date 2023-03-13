@@ -57,9 +57,11 @@ prd_jupyter = JupyterLab(
     # The jupyter_lab_config is mounted when creating the image
     jupyter_config_file="/usr/local/jupyter/jupyter_lab_config.py",
     # Read env variables from env/prd_jupyter_env.yml
-    env_file=ws_settings.ws_dir.joinpath("env/prd_jupyter_env.yml"),
+    env_file=ws_settings.ws_root.joinpath("workspace/env/prd_jupyter_env.yml"),
     # Read secrets from secrets/prd_jupyter_secrets.yml
-    secrets_file=ws_settings.ws_dir.joinpath("secrets/prd_jupyter_secrets.yml"),
+    secrets_file=ws_settings.ws_root.joinpath(
+        "workspace/secrets/prd_jupyter_secrets.yml"
+    ),
     image_pull_policy=ImagePullPolicy.ALWAYS,
     use_cache=ws_settings.use_cache,
     pod_node_selector=workers_ng_label,

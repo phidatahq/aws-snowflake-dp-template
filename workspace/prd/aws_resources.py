@@ -118,7 +118,7 @@ prd_acm_certificate = AcmCertificate(
     subject_alternative_names=[f"*.{ws_settings.prd_domain}"],
     # Store the certificate ARN in the certificate_summary_file
     store_cert_summary=True,
-    certificate_summary_file=ws_settings.ws_dir.joinpath(
+    certificate_summary_file=ws_settings.ws_root.joinpath(
         "workspace", "aws", "acm", ws_settings.prd_domain
     ),
     skip_create=skip_create,

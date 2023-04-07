@@ -16,12 +16,10 @@ ws_settings = WorkspaceSettings(
     dev_env="dev",
     # -*- Dev Apps
     dev_jupyter_enabled=True,
-    # dev_airflow_enabled=True,
+    dev_airflow_enabled=True,
     # dev_postgres_enabled=True,
     # dev_superset_enabled=True,
     # dev_traefik_enabled=True,
-    # dev_databox_enabled=True,
-    # dev_assistant_enabled=True,
     # -*- Production settings
     prd_env="prd",
     # Production branch: used for git-sync
@@ -35,8 +33,6 @@ ws_settings = WorkspaceSettings(
     prd_traefik_enabled=True,
     prd_whoami_enabled=True,
     # prd_postgres_enabled=True,
-    # prd_databox_enabled=True,
-    # prd_assistant_enabled=True,
     # -*- AWS settings
     # Region for AWS resources
     aws_region="us-east-1",
